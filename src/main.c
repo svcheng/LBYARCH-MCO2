@@ -3,22 +3,44 @@
 extern void SAXPYasm(int n, float A, float* X, float* Y, float* Z);
 
 void printZ(int n, float* Z) {
-	printf("Z = ");
 	for (int i = 0; i < n; i++) {
-		if (i < n - 1)
-			printf("%.2f, ", Z[i]);
-		else
-			printf("%.2f\n", Z[i]);
+		printf("%.2f  ", Z[i]);
+	}
+}
+
+void resetZ(int n, float* Z) {
+	for (int i = 0; i < n; i++) {
+		Z[i] = 0.0;
 	}
 }
 
 void SAXPY(int n, float A, float* X, float* Y, float* Z) {
 	for (int i = 0; i < n; i++) {
-		Z[i] = (A * X[i]) + Y[i];
+		Z[i] = A * X[i] + Y[i];
+		if (i < 10) {
+			printf("%.2f  ", Z[i]);
+		}
 	}
 }
 
-int main() {
+void benchmark(int n, float A, float* X, float* Y, float* Z) {
+	printf("C     : ");
+	// time C implementation
+
+	SAXPY(n, A, X, Y, Z);
+	printf("\n");
+
+	resetZ(n, Z);
+
+	printf("x86-64: ");
+	// time x86-64 implementation
+
+	SAXPYasm(n, A, X, Y, Z);
+	printZ(n, Z); // temporary, for checking output
+	printf("\n");
+}
+
+void testCase0() {
 	int n = 3;
 	float A = 2.0;
 
@@ -26,16 +48,12 @@ int main() {
 	float Y[3] = { 11.0, 12.0, 13.0 };
 	float Z[3] = { 0.0, 0.0, 0.0 };
 
-	// Call C function
-	SAXPY(n, A, X, Y, Z);
-	printZ(n, Z);
+	benchmark(n, A, X, Y, Z);
+}
 
-	for (int i = 0; i < n; i++)
-		Z[i] = 0.0;
+int main() {
 
-	SAXPYasm(n, A, X, Y, Z);
-	//printf("%.2f", *SAXPYasm(n, A, X, Y, Z));
-	printZ(n, Z);
+	testCase0();
 
 	return 0;
 }
