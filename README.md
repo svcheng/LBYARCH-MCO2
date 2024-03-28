@@ -1,3 +1,3 @@
-# LBYARCH-MCO2 S15
-## Alyanna Cabrera
-## Samuel Cheng
+# LBYARCH-MCO2 
+Alyanna Cabrera, S15
+Samuel Cheng, S15
