@@ -1,4 +1,7 @@
 #include <stdio.h>
+#include <time.h> 
+
+int numTestRuns = 30;
 
 extern void SAXPYasm(int n, float A, float* X, float* Y, float* Z);
 
@@ -23,21 +26,27 @@ void SAXPY(int n, float A, float* X, float* Y, float* Z) {
 	}
 }
 
-void benchmark(int n, float A, float* X, float* Y, float* Z) {
+double benchmarkC(int n, float A, float* X, float* Y, float* Z) {
 	printf("C     : ");
-	// time C implementation
-
+	clock_t time = clock();
 	SAXPY(n, A, X, Y, Z);
-	printf("\n");
+	time = clock() - time;
+	double timeElapsed = (double)time / CLOCKS_PER_SEC;
+	printf("|  Time Elapsed: %.4f\n", timeElapsed);
 
-	resetZ(n, Z);
+	return timeElapsed;
+}
 
+double benchmarkx86_64(int n, float A, float* X, float* Y, float* Z) {
 	printf("x86-64: ");
-	// time x86-64 implementation
-
+	clock_t time = clock();
 	SAXPYasm(n, A, X, Y, Z);
+	time = clock() - time;
 	printZ(n, Z); // temporary, for checking output
-	printf("\n");
+	double timeElapsed = (double)time / CLOCKS_PER_SEC;
+	printf("|  Time Elapsed: %.4f\n", timeElapsed);
+
+	return timeElapsed;
 }
 
 void testCase0() {
@@ -48,7 +57,22 @@ void testCase0() {
 	float Y[3] = { 11.0, 12.0, 13.0 };
 	float Z[3] = { 0.0, 0.0, 0.0 };
 
-	benchmark(n, A, X, Y, Z);
+	double cTimes = 0.0;
+	double x86_64Times = 0.0;
+
+	printf("CASE 0\n------------------------\n");
+	for (int i = 0; i < numTestRuns; i++) {
+		printf("Run %d\n", i + 1);
+		cTimes += benchmarkC(n, A, X, Y, Z);
+		resetZ(n, Z);
+		x86_64Times += benchmarkx86_64(n, A, X, Y, Z);
+		printf("\n");
+	}
+
+	printf("Total Times: %.4f  %.4f\n", cTimes, x86_64Times);
+	cTimes = cTimes / numTestRuns;
+	x86_64Times = x86_64Times / numTestRuns;
+	printf("Average Times: %.4f  %.4f\n", cTimes, x86_64Times);
 }
 
 int main() {
