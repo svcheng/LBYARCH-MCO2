@@ -8,14 +8,14 @@
 #### Debug Mode for vector size 2^20
 |  | C | x86-64 Assembly |
 |----------|----------|----------|
-| Total Time | 0.1210 | 0.0600 |
-| Average Time | 0.0040 | 0.0020 |
+| Total Time | 0.1960 | 0.0590 |
+| Average Time | 0.0065 | 0.0020 |
 
 #### Debug Mode for vector size 2^30
 |  | C | x86-64 Assembly |
 |----------|----------|----------|
-| Total Time |  |  |
-| Average Time |  |  |
+| Total Time | 0.0130 | 0.0000 |
+| Average Time | 0.0004 | 0.0000 |
 
 
 ##### Comparative Analysis for Debug Mode
@@ -24,14 +24,14 @@
 #### Release Mode for vector size 2^20
 |  | C | x86-64 Assembly |
 |----------|----------|----------|
-| Total Time | 0.1000 | -54737990.4050 |
-| Average Time | 0.0033 | -1824599.6802 |
+| Total Time | 0.3520 | 53191819.9910 |
+| Average Time | 0.0117 | 1773060.6664 |
 
 #### Release Mode for vector size 2^30
 |  | C | x86-64 Assembly |
 |----------|----------|----------|
-| Total Time |  |  |
-| Average Time |  |  |
+| Total Time | 0.0110 | -5253297.7340 |
+| Average Time | 0.0004 | -175109.9245 |
 
 ##### Comparative Analysis for Release Mode
 ###### to add
