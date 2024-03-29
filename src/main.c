@@ -33,10 +33,9 @@ double benchmarkC(int n, float A, float* X, float* Y, float* Z) {
 
 	clock_t time = clock();
 	SAXPY(n, A, X, Y, Z);
-	time = ((double)clock() - time);
 
 	printf("\n");
-	return (double)time / CLOCKS_PER_SEC;
+	return ((double)clock() - time) * 1e3 / CLOCKS_PER_SEC;
 }
 
 double benchmarkx86_64(int n, float A, float* X, float* Y, float* Z) {
@@ -44,11 +43,10 @@ double benchmarkx86_64(int n, float A, float* X, float* Y, float* Z) {
 
 	clock_t time = clock();
 	SAXPYasm(n, A, X, Y, Z);
-	time = ((double)clock() - time);
 
 	printFirstTen(Z, n); // temporary, for checking output
 	printf("\n");
-	return (double)time / CLOCKS_PER_SEC;
+	return ((double)clock() - time) * 1e3 / CLOCKS_PER_SEC;
 }
 
 void computeAverageTime(int testCaseNum, int n, float A, float* X, float* Y, float* Z) {
@@ -85,10 +83,12 @@ void testCase0() {
 }
 
 void testCase1() {
-	int n = 1 << 20; //2^20
-	//int n = 1 << 24; //2^24
+	//int n = 1 << 20; //2^20
+	int n = 1 << 24; //2^24
 	//int n = 1 << 28; //2^28
-	float A = 1.0;
+
+	//float A = 1.0;
+	float A = (float)rand();
 
 	float* X = (float*)malloc(n * sizeof(float)); // heap allocate to avoid stack overflow
 	float* Y = (float*)malloc(n * sizeof(float));
@@ -99,8 +99,10 @@ void testCase1() {
 	}
 
 	for (int i = 0; i < n; i++) {
-		X[i] = (float)(i % 10000);
-		Y[i] = (float)(i % 10000);
+		//X[i] = (float)(i % 10000);
+		//Y[i] = (float)(i % 10000);
+		X[i] = (float)rand() / (RAND_MAX * 100);
+		Y[i] = (float)rand() / (RAND_MAX * 100);
 		Z[i] = 0.0;
 	}
 

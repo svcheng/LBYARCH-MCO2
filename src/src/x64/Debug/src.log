@@ -1,4 +1,2 @@
 ﻿  main.c
-C:\Users\user\Source\Repos\LBYARCH-MCO2\src\main.c(36,9): warning C4244: '=': conversion from 'double' to 'clock_t', possible loss of data
-C:\Users\user\Source\Repos\LBYARCH-MCO2\src\main.c(47,9): warning C4244: '=': conversion from 'double' to 'clock_t', possible loss of data
   src.vcxproj -> C:\Users\user\source\repos\LBYARCH-MCO2\src\x64\Debug\src.exe
