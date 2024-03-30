@@ -76,17 +76,10 @@ void testCase0() {
 	float Y[3] = { 11.0, 12.0, 13.0 };
 	float Z[3] = { 0.0, 0.0, 0.0 };
 
-	double cTimes = 0.0;
-	double x86_64Times = 0.0;
-
 	computeAverageTime(0, n, A, X, Y, Z);
 }
 
-void testCase1() {
-	//int n = 1 << 20; //2^20
-	int n = 1 << 24; //2^24
-	//int n = 1 << 28; //2^28
-
+void testCase(int n) {
 	//float A = 1.0;
 	float A = (float)rand();
 
@@ -115,7 +108,13 @@ void testCase1() {
 
 int main() {
 	//testCase0();
-	testCase1();
+	
+	int n;
+	//n = 1 << 20; //2^20
+	n = 1 << 24; //2^24
+	//n = 1 << 28; //2^28
+
+	testCase(n);
 
 	return 0;
 }
