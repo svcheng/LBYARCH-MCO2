@@ -42,28 +42,31 @@
 #### Vector Size = 2<sup>20</sup>
 | Time in ms | C | x86-64 Assembly |
 |----------|----------|----------|
-| Total Time |  |  |
-| Average Time |  |  |
+| Total Time | 78.0000 | 97.0000 |
+| Average Time | 2.6000 | 3.2333 |
 
 #### Vector Size = 2<sup>24</sup>
 | Time in ms | C | x86-64 Assembly |
 |----------|----------|----------|
-| Total Time |  |  |
-| Average Time |  |  |
+| Total Time | 661.0000 | 633.0000 |
+| Average Time | 22.0333 | 21.1000 |
 
 #### Vector Size = 2<sup>28</sup>
 | Time in ms | C | x86-64 Assembly |
 |----------|----------|----------|
-| Total Time |  |  |
-| Average Time |  |  |
+| Total Time | 372857.0000 | 326242.0000 |
+| Average Time | 12428.5667 | 10874.7333 |
 
 #### Average Time Summary for Release Mode
 | Average Time in ms | 2<sup>20</sup> | 2<sup>24</sup> | 2<sup>28</sup> |
 |----------|----------|----------|----------|
-| C |  |  |  |
-| x86-64 Assembly |  |  |  |
+| C | 2.6000 | 22.0333 | 12428.5667 |
+| x86-64 Assembly | 3.2333 | 21.1000 | 10874.7333 |
+| **Faster** | C | x86-64 Assembly | x86-64 Assembly |
+
+###### The results above indicate that C code performs better in release mode than in debug mode, as although x86-64 Assembly is still faster than C, the time difference is much smaller compared to the time difference in debug mode. This difference may stem from the optimizations applied to the C code and kernel in release mode. In debug mode, all optimizations for C are disabled, whereas certain optimizations are enabled for release mode. 
 
 ---
 
 ## Comparative Analysis
-###### The results above indicate that the x86-64 Assembly code runs faster in debug mode, whereas the C code performs better in release mode. This difference may stem from the optimizations applied to the C code and kernel in release mode. In debug mode, all optimizations for C are disabled, whereas certain optimizations are enabled for release mode. It should be noted that this project was tested using the default settings. These optimizations can be observed in the project properties tab, specifically under the optimization section for both debug and release configurations.
+###### The tables above indicate that debug mode is slower than release mode. Debug mode typically includes additional checks and debugging features, whereas release mode is more focused on optimizing the code's performance and enhancing execution speed. These optimization capabilities are best observed in C code, as C compilers offer various optimization levels that can significantly improve performance. As illustrated in our tables, the execution time of C code in release mode consistently outperforms that in debug mode.
