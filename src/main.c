@@ -11,6 +11,7 @@ void printFirstTen(float* Z, int n) {
 	for (int i = 0; i < end; i++) {
 		printf("%.2f  ", Z[i]);
 	}
+	printf("\n");
 }
 
 void resetZ(int n, float* Z) {
@@ -22,31 +23,28 @@ void resetZ(int n, float* Z) {
 void SAXPY(int n, float A, float* X, float* Y, float* Z) {
 	for (int i = 0; i < n; i++) {
 		Z[i] = A * X[i] + Y[i];
-		if (i < 10) {
-			printf("%.2f  ", Z[i]);
-		}
 	}
 }
 
-double benchmarkC(int n, float A, float* X, float* Y, float* Z) {
-	printf("C     : ");
+double benchmark(int n, float A, float* X, float* Y, float* Z, int isC) {
+	clock_t startTime;
+	double timeElapsed;
 
-	clock_t time = clock();
-	SAXPY(n, A, X, Y, Z);
+	if (isC) {
+		printf("C     : ");
+		startTime = clock();
+		SAXPY(n, A, X, Y, Z);
+		timeElapsed = ((double)clock() - startTime) * 1e3 / CLOCKS_PER_SEC;
+	} else {
+		printf("x86-64: ");
+		startTime = clock();
+		SAXPYasm(n, A, X, Y, Z);
+		timeElapsed = ((double)clock() - startTime) * 1e3 / CLOCKS_PER_SEC;
+	}
 
-	printf("\n");
-	return ((double)clock() - time) * 1e3 / CLOCKS_PER_SEC;
-}
-
-double benchmarkx86_64(int n, float A, float* X, float* Y, float* Z) {
-	printf("x86-64: ");
-
-	clock_t time = clock();
-	SAXPYasm(n, A, X, Y, Z);
-
-	printFirstTen(Z, n); // temporary, for checking output
-	printf("\n");
-	return ((double)clock() - time) * 1e3 / CLOCKS_PER_SEC;
+	printFirstTen(Z, n);
+	resetZ(n, Z);
+	return timeElapsed;
 }
 
 void computeAverageTime(int testCaseNum, int n, float A, float* X, float* Y, float* Z) {
@@ -56,9 +54,8 @@ void computeAverageTime(int testCaseNum, int n, float A, float* X, float* Y, flo
 	printf("CASE %d\n------------------------\n", testCaseNum);
 	for (int i = 0; i < numTestRuns; i++) {
 		printf("Run %d\n", i + 1);
-		cTimes += benchmarkC(n, A, X, Y, Z);
-		resetZ(n, Z);
-		x86_64Times += benchmarkx86_64(n, A, X, Y, Z);
+		cTimes += benchmark(n, A, X, Y, Z, 1);
+		x86_64Times += benchmark(n, A, X, Y, Z, 0);
 		printf("\n");
 	}
 
@@ -106,12 +103,10 @@ void testCase(int n) {
 	free(Z);
 }
 
-int main() {
-	//testCase0();
-	
+int main() {	
 	int n;
-	//n = 1 << 20; //2^20
-	n = 1 << 24; //2^24
+	n = 1 << 20; //2^20
+	//n = 1 << 24; //2^24
 	//n = 1 << 28; //2^28
 
 	testCase(n);
