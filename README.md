@@ -33,7 +33,7 @@
 | x86-64 Assembly | 2.7667 | 27.8667 | 11571.2333 |
 | **Faster** | x86-64 Assembly | x86-64 Assembly | x86-64 Assembly |
 
-## One possible reason why the x86-64 Assembly code was faster is because it provides more direct control over hardware resources, resulting in more optimized code execution compared to C. Additionally, Assembly code bypasses some of the overhead associated with high-level compilation, potentially contributing to its faster performance.
+#### One possible reason why the x86-64 Assembly code was faster is because it provides more direct control over hardware resources, resulting in more optimized code execution compared to C. Additionally, Assembly code bypasses some of the overhead associated with high-level compilation, potentially contributing to its faster performance.
 
 ---
 
