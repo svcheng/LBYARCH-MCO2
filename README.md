@@ -11,8 +11,8 @@
 #### Vector Size = 2<sup>20</sup>
 | Time in ms | C | x86-64 Assembly |
 |----------|----------|----------|
-| Total Time | 167.0000 | 83.0000 |
-| Average Time | 5.5667 | 2.7667 |
+| Total Time | 126.0000 | 69.0000 |
+| Average Time | 4.2000 | 2.3000 |
 
 #### Vector Size = 2<sup>24</sup>
 | Time in ms | C | x86-64 Assembly |
@@ -29,8 +29,8 @@
 #### Average Time Summary for Debug Mode
 | Average Time in ms | 2<sup>20</sup> | 2<sup>24</sup> | 2<sup>28</sup> |
 |----------|----------|----------|----------|
-| C | 5.5667 | 65.3333 | 13865.2000 |
-| x86-64 Assembly | 2.7667 | 27.8667 | 11571.2333 |
+| C | 4.2000 | 65.3333 | 13865.2000 |
+| x86-64 Assembly | 2.3000 | 27.8667 | 11571.2333 |
 | **Faster** | x86-64 Assembly | x86-64 Assembly | x86-64 Assembly |
 
 ##### One possible reason why the x86-64 Assembly code was faster is because it provides more direct control over hardware resources, resulting in more optimized code execution compared to C. Additionally, Assembly code bypasses some of the overhead associated with high-level compilation, potentially contributing to its faster performance.
