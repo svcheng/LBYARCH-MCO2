@@ -9,7 +9,7 @@
 
 ---
 ## Data Initialization
-### The group opted to use the same constant values in initializing the data. **2.0** is assigned to A, **3.5** to X, **1.5** to Y, and **0.0** to Z. When using the SAXPY function, the result (Z) would always be ((2.0 * 3.5) + 1.5), which is **8.5**. This can be seen in the screenshots below.
+### The group opted to use the same constant values in initializing the data. **2.0** is assigned to A, **3.5** to X, **1.5** to Y, and **0.0** to Z. When using the SAXPY function, the expected result (Z) is always ((2.0 * 3.5) + 1.5), or **8.5**. This can be seen in the screenshots below.
 
 ## Debug Mode
 ### Vector Size = 2<sup>20</sup>
@@ -68,7 +68,7 @@
 | x86-64 Assembly | 1.4000 | 23.8667 | 274.6667 |
 | **Faster** | C | C | C |
 
-#### The results above show that C code performs better in release mode than in debug mode, as although x86-64 Assembly is faster than C in debug mode, C is now faster than x86-64 Assembly in release mode. The improvement in the runtime of may stem from the optimizations applied to the C codein release mode, which are disabled in debug mode.
+#### The results above show that the C code performs better in release mode than in debug mode. Although x86-64 assembly is faster than C in debug mode, C is now faster than x86-64 Assembly in release mode. The improvement in the runtime of may stem from the optimizations applied to the C code in release mode, which are disabled in debug mode.
 
 ---
 ## Correctness Check
