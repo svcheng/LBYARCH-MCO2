@@ -68,7 +68,7 @@
 | x86-64 Assembly | 1.4000 | 23.8667 | 274.6667 |
 | **Faster** | C | C | C |
 
-#### The results above show that the C code performs better in release mode than in debug mode. Although x86-64 assembly is faster than C in debug mode, C is now faster than x86-64 Assembly in release mode. The improvement in the runtime of may stem from the optimizations applied to the C code in release mode, which are disabled in debug mode.
+#### The results above indicate that the C code performs better in release mode than in debug mode. While x86-64 assembly is faster than C in debug mode, C now outperforms x86-64 Assembly in release mode. The runtime improvement may stem from the optimizations applied to the C code in release mode, which are disabled in debug mode.
 
 ---
 ## Correctness Check
