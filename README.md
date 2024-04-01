@@ -87,4 +87,8 @@
 | ![debug 2^28](screenshots/debug%2028.png) | ![release 2^28](screenshots/release%2028.png) |
 
 ## Comparative Analysis
-#### The tables above indicate that debug mode is slower than release mode. Debug mode typically includes additional checks and debugging features, whereas release mode is more focused on optimizing the code's performance and enhancing execution speed. These optimization capabilities are best observed in C code, as C compilers offer various optimization levels that can significantly improve performance. As illustrated in our tables, the execution time of C code in release mode consistently outperforms that in debug mode. Lastly, the project also highlights the capabilities of Assembly code in offering greater control and optimization opportunities compared to higher-level languages like C. Due to its proximity to the hardware, Assembly grants us finer control over system resources, enabling us to optimize the code's performance more effectively.
+#### From the results above, it can be observed that both kernels run slightly slower when run in debug mode than in release mode. This is likely because running debug mode typically includes additional checks and other debugging features, whereas release mode places more emphasis on optimizing the code's performance. 
+
+#### The C kernel runs much faster in release mode than in debug mode, even outperforming the assembly code in some cases. This is because of the optimization performed in release mode, as C compilers offer various optimization levels that can significantly improve performance.
+
+#### Lastly, the results also highlight the capabilities of Assembly code in offering greater control and optimization opportunities compared to higher-level languages like C. Due to its proximity to the hardware, Assembly grants us finer control over system resources, enabling us to optimize the code's performance as much as possible without relying on a complex compiler.
