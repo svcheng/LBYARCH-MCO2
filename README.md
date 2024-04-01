@@ -7,6 +7,8 @@
 ### The program was executed both in debug mode and release mode with three different vector sizes: 2<sup>20</sup>, 2<sup>24</sup>, and 2<sup>28</sup>, with execution time recorded for each execution. See a screenshot of the problem specification below.
 ![problem](screenshots/problem.png)
 
+---
+
 ## Debug Mode
 
 ### Vector Size = 2<sup>20</sup>
