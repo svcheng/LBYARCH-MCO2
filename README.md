@@ -8,9 +8,10 @@
 ![problem](screenshots/problem.png)
 
 ---
+## Inputs
+### The group opted to use the same constant values in initializing the data. **2.0** is assigned to A, **3.5** to X, **1.5** to Y, and **0.0** to Z. When using the SAXPY function, the result (Z) would always be ((2.0 * 3.5) + 1.5), which is **8.5**. This can be seen in the screenshots below.
 
 ## Debug Mode
-
 ### Vector Size = 2<sup>20</sup>
 | Time in ms | C | x86-64 Assembly |
 |----------|----------|----------|
