@@ -4,7 +4,8 @@
 
 ## Project Description
 ### This project involves implementing kernels (in C and in x86-64 assembly) capable of performing the SAXPY (A*X + Y) function. The kernel must utilize functional scalar SIMD registers and floating-point instructions. The output of the kernel should display the result of the first ten elements of vector Z for both versions of the kernel (C and x86-64 assembly).
-### This project is executed both in debug mode and release mode using three different vector sizes: 2<sup>20</sup>, 2<sup>24</sup>, and 2<sup>28</sup>. This is to see and compare the execution time of the two execution modes.
+### This project is executed both in debug mode and release mode using three different vector sizes: 2<sup>20</sup>, 2<sup>24</sup>, and 2<sup>28</sup>. This is to see and compare the execution time of the two execution modes. See screenshot of the problem below.
+![problem](screenshots/problem.png)
 
 ## Debug Mode
 
@@ -68,7 +69,7 @@
 
 ---
 ## Correctness Check
-#### To verify the correctness of our result we printed the results of C and x86-64 Assembly together for the 30 runs of each vector: 2<sup>20</sup>, 2<sup>24</sup>, and 2<sup>28</sup>. See the pictures below for the screenshots of the command line.
+#### To verify the correctness of our result we printed the results of C and x86-64 Assembly together for the 30 runs of each vector: 2<sup>20</sup>, 2<sup>24</sup>, and 2<sup>28</sup>. We then made sure that the results are identical to each other to ensure correctness. See the pictures below for the screenshots of the command line.
 
 ### Vector Size = 2<sup>20</sup> 
 | Debug Mode | Release Mode |
