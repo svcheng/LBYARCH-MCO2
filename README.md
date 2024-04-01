@@ -70,6 +70,20 @@
 ## Correctness Check
 #### To verify the correctness of our result we printed the results of C and x86-64 Assembly together for the 30 runs of each vector: 2<sup>20</sup>, 2<sup>24</sup>, and 2<sup>28</sup>. See the pictures below for the screenshots of the command line.
 
+### Vector Size = 2<sup>20</sup> 
+| Debug Mode | Release Mode |
+|----------|----------|
+| ![debug 2^20](screenshots/debug%2020.png) | ![release 2^20](screenshots/release%2020.png) |
+
+### Vector Size = 2<sup>24</sup> 
+| Debug Mode | Release Mode |
+|----------|----------|
+| ![debug 2^24](screenshots/debug%2024.png) | ![release 2^24](screenshots/release%2024.png) |
+
+### Vector Size = 2<sup>28</sup> 
+| Debug Mode | Release Mode |
+|----------|----------|
+| ![debug 2^28](screenshots/debug%2028.png) | ![release 2^28](screenshots/release%2028.png) |
 
 ## Comparative Analysis
 #### The tables above indicate that debug mode is slower than release mode. Debug mode typically includes additional checks and debugging features, whereas release mode is more focused on optimizing the code's performance and enhancing execution speed. These optimization capabilities are best observed in C code, as C compilers offer various optimization levels that can significantly improve performance. As illustrated in our tables, the execution time of C code in release mode consistently outperforms that in debug mode. Lastly, the project also highlights the capabilities of Assembly code in offering greater control and optimization opportunities compared to higher-level languages like C. Due to its proximity to the hardware, Assembly grants us finer control over system resources, enabling us to optimize the code's performance more effectively.
