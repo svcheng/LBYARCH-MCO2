@@ -3,8 +3,8 @@
 ### Samuel Cheng, S15
 
 ## Project Description
-### This project involves implementing kernels (in C and in x86-64 assembly) capable of performing the SAXPY (A*X + Y) function. The kernel must utilize functional scalar SIMD registers and floating-point instructions. The output of the kernel should display the result of the first ten elements of vector Z for both versions of the kernel (C and x86-64 assembly).
-### This program is executed both in debug mode and release mode with three different vector sizes: 2<sup>20</sup>, 2<sup>24</sup>, and 2<sup>28</sup>, with execution time recorded for each execution. See screenshot of the problem below.
+### This project involves implementing the SAXPY (A*X + Y) function in C and x86-64 assembly. The x86-64 kernel must utilize functional scalar SIMD registers and floating-point instructions. The output of the kernels should display the values of the first ten elements of the result vector Z.
+### The program was executed both in debug mode and release mode with three different vector sizes: 2<sup>20</sup>, 2<sup>24</sup>, and 2<sup>28</sup>, with execution time recorded for each execution. See a screenshot of the problem specification below.
 ![problem](screenshots/problem.png)
 
 ## Debug Mode
