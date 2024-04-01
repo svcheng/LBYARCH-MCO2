@@ -4,7 +4,7 @@
 
 ## Project Description
 ### This project involves implementing kernels (in C and in x86-64 assembly) capable of performing the SAXPY (A*X + Y) function. The kernel must utilize functional scalar SIMD registers and floating-point instructions. The output of the kernel should display the result of the first ten elements of vector Z for both versions of the kernel (C and x86-64 assembly).
-### This project is executed both in debug mode and release mode using three different vector sizes: 2<sup>20</sup>, 2<sup>24</sup>, and 2<sup>28</sup>. This is to see and compare the execution time of the two execution modes. See screenshot of the problem below.
+### This program is executed both in debug mode and release mode with three different vector sizes: 2<sup>20</sup>, 2<sup>24</sup>, and 2<sup>28</sup>, with execution time recorded for each execution. See screenshot of the problem below.
 ![problem](screenshots/problem.png)
 
 ## Debug Mode
@@ -65,11 +65,11 @@
 | x86-64 Assembly | 1.2000 | 18.6333 | 270.6667 |
 | **Faster** | x86-64 Assembly | C | x86-64 Assembly |
 
-#### The results above indicate that C code performs better in release mode than in debug mode, as although x86-64 Assembly is mostly faster than C, the time difference is much smaller compared to the time difference in debug mode. This difference may stem from the optimizations applied to the C code and kernel in release mode. In debug mode, all optimizations for C are disabled, whereas certain optimizations are enabled for release mode. 
+#### The results above show that C code performs better in release mode than in debug mode, as although x86-64 Assembly is mostly faster than C, the time difference is much smaller compared to the time difference in debug mode. This difference may stem from the optimizations applied to the C codein release mode, which are disabled in debug mode.
 
 ---
 ## Correctness Check
-#### To verify the correctness of our result we printed the results of C and x86-64 Assembly together for the 30 runs of each vector: 2<sup>20</sup>, 2<sup>24</sup>, and 2<sup>28</sup>. We then made sure that the results are identical to each other to ensure correctness. See the pictures below for the screenshots of the command line.
+#### To verify the correctness of our both the C and x86-64 assembly kernels, the first ten elements of the result vector Z were printed each time the function was computed.
 
 ### Vector Size = 2<sup>20</sup> 
 | Debug Mode | Release Mode |
