@@ -14,26 +14,26 @@
 ### Vector Size = 2<sup>20</sup>
 | Time in ms | C | x86-64 Assembly |
 |----------|----------|----------|
-| Total Time | 81.0000 | 49.0000 |
-| Average Time | 2.7000 | 1.6333 |
+| Total Time | 96.0000 | 53.0000 |
+| Average Time | 3.2000 | 1.7667 |
 
 ### Vector Size = 2<sup>24</sup>
 | Time in ms | C | x86-64 Assembly |
 |----------|----------|----------|
-| Total Time | 1116.0000 | 563.0000 |
-| Average Time | 37.2000 | 18.7667 |
+| Total Time | 1201.0000 | 713.0000 |
+| Average Time | 40.0333 | 23.7667 |
 
 ### Vector Size = 2<sup>28</sup>
 | Time in ms | C | x86-64 Assembly |
 |----------|----------|----------|
-| Total Time | 17399.0000 | 8139.0000 |
-| Average Time | 579.9667 | 271.3000 |
+| Total Time | 16762.0000 | 8244.0000 |
+| Average Time | 558.7333 | 274.8000 |
 
 ### Average Time Summary for Debug Mode
 | Average Time in ms | 2<sup>20</sup> | 2<sup>24</sup> | 2<sup>28</sup> |
 |----------|----------|----------|----------|
-| C | 2.7000 | 37.2000 | 579.9667 |
-| x86-64 Assembly | 1.6333 | 18.7667 | 271.3000 |
+| C | 3.2000 | 40.0333 | 558.7333 |
+| x86-64 Assembly | 1.7667 | 23.7667 | 274.8000 |
 | **Faster** | x86-64 Assembly | x86-64 Assembly | x86-64 Assembly |
 
 #### One possible reason why the x86-64 Assembly code was faster is because it provides more direct control over hardware resources, resulting in more optimized code execution compared to C. Additionally, Assembly code bypasses some of the overhead associated with high-level compilation, potentially contributing to its faster performance.
@@ -45,29 +45,29 @@
 ### Vector Size = 2<sup>20</sup>
 | Time in ms | C | x86-64 Assembly |
 |----------|----------|----------|
-| Total Time | 41.0000 | 36.0000 |
-| Average Time | 1.3667 | 1.2000 |
+| Total Time | 36.0000 | 42.0000 |
+| Average Time | 1.2000 | 1.4000 |
 
 ### Vector Size = 2<sup>24</sup>
 | Time in ms | C | x86-64 Assembly |
 |----------|----------|----------|
-| Total Time | 543.0000 | 559.0000 |
-| Average Time | 18.1000 | 18.6333 |
+| Total Time | 664.0000 | 716.0000 |
+| Average Time | 22.1333 | 23.8667 |
 
 ### Vector Size = 2<sup>28</sup>
 | Time in ms | C | x86-64 Assembly |
 |----------|----------|----------|
-| Total Time | 8131.0000 | 8120.0000 |
-| Average Time | 271.0333 | 270.6667 |
+| Total Time | 8110.0000 | 8240.0000 |
+| Average Time | 270.3333 | 274.6667 |
 
 ### Average Time Summary for Release Mode
 | Average Time in ms | 2<sup>20</sup> | 2<sup>24</sup> | 2<sup>28</sup> |
 |----------|----------|----------|----------|
-| C | 1.3667 | 18.1000 | 271.0333 |
-| x86-64 Assembly | 1.2000 | 18.6333 | 270.6667 |
-| **Faster** | x86-64 Assembly | C | x86-64 Assembly |
+| C | 1.2000 | 22.1333 | 270.3333 |
+| x86-64 Assembly | 1.4000 | 23.8667 | 274.6667 |
+| **Faster** | C | C | C |
 
-#### The results above show that C code performs better in release mode than in debug mode, as although x86-64 Assembly is mostly faster than C, the time difference is much smaller compared to the time difference in debug mode. This difference may stem from the optimizations applied to the C codein release mode, which are disabled in debug mode.
+#### The results above show that C code performs better in release mode than in debug mode, as although x86-64 Assembly is faster than C in debug mode, C is now faster than x86-64 Assembly in release mode. The improvement in the runtime of may stem from the optimizations applied to the C codein release mode, which are disabled in debug mode.
 
 ---
 ## Correctness Check
